@@ -15,6 +15,8 @@ public class Picture
     private Square window;
     private Triangle roof;
     private Circle sun;
+    private Square floor;
+    private Square garage;
     private boolean drawn;
 
     /**
@@ -26,6 +28,8 @@ public class Picture
         window = new Square();
         roof = new Triangle();  
         sun = new Circle();
+        floor = new Square();
+        garage = new Square();
         drawn = false;
     }
 
@@ -35,28 +39,41 @@ public class Picture
     public void draw()
     {
         if(!drawn) {
-            wall.moveHorizontal(-140);
+            wall.moveHorizontal(-240);
             wall.moveVertical(20);
             wall.changeSize(120);
             wall.makeVisible();
+          
+            garage.moveHorizontal(-120);
+            garage.moveVertical(40);
+            garage.changeSize(100);
+            garage.makeVisible();
             
             window.changeColor("black");
-            window.moveHorizontal(-120);
+            window.moveHorizontal(-220);
             window.moveVertical(40);
             window.changeSize(40);
             window.makeVisible();
-    
+            
+            floor.changeColor("green");
+            floor.moveHorizontal(-310);
+            floor.moveVertical(140);
+            floor.changeSize(500);
+            floor.makeVisible();
+            
             roof.changeSize(60, 180);
-            roof.moveHorizontal(20);
+            roof.moveHorizontal(-80);
             roof.moveVertical(-60);
             roof.makeVisible();
     
             sun.changeColor("yellow");
-            sun.moveHorizontal(100);
-            sun.moveVertical(-40);
+            sun.moveHorizontal(140);
+            sun.moveVertical(-10);
             sun.changeSize(80);
             sun.makeVisible();
             drawn = true;
+            
+            
         }
     }
 
@@ -69,6 +86,7 @@ public class Picture
         window.changeColor("white");
         roof.changeColor("black");
         sun.changeColor("black");
+        floor.changeColor("black");
     }
 
     /**
